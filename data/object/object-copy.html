@@ -1,0 +1,12 @@
+<html>
+  <body>
+    <h1>Копирование объектов</h1>
+    <h2>копирование независимого объекта</h2>
+    <code>for (let key in obj) {
+      clone[key] = obj[key]
+    }</code>
+    <code>let clone = Object.assign({}, user);</code>
+    <code>Object.assign(clone, obj);</code>
+    <p>выше перечисленный код копирует вложенные объекты все равно по ссылке</p>
+  </body>
+</html>
