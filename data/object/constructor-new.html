@@ -1,0 +1,30 @@
+<html>
+  <body>
+    <h1>Конструктор и оператор New</h1>
+    <h2>функция конструктор</h2>
+    <code>function User(name) {
+  this.name = name;
+  this.isAdmin = false;
+}
+
+let user = new User("Jack");
+
+alert(user.name); // Jack
+alert(user.isAdmin); // false</code>
+    <p>let obj = new Obj() и let obj = new Obj - тоже самое</p>
+    <h2>создание методов в конструкторе</h2>
+    <code>
+      function User(name) {
+  this.name = name;
+
+  this.sayHi = function() {
+    alert( "Меня зовут: " + this.name );
+  };
+}
+
+let john = new User("John");
+
+john.sayHi(); // Меня зовут: John
+    </code>
+  </body>
+</html>
