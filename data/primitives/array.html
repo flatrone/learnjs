@@ -1,0 +1,48 @@
+<html>
+  <body>
+    <h1>Array</h1>
+    <h2>at</h2>
+    <p>arr[arr.length - 1]  -  arr.at(-1)</p>
+    <p>arr[i] - arr.at(i)</p>
+    <h2>pop/push, shift/ushift</h2>
+    <p>.push(elem) - добавляет элемент в конец</p>
+    <p>.shift() - удаляет первый элемент</p>
+    <p>.pop() - удаляет последний элемент и возвращает его</p>
+    <p>.unshift(elem) - добавляет в начало массива</p>
+    <p>push/pop быстрее чем shift/unshift</p>
+    <h2>new Array</h2>
+    <p>let arr = new Array(3) - создаст массив с 3 элементами undefined</p>
+    <h2>toString</h2>
+    <p>вернет строку элементов разделенных запятыми</p>
+    <p>[1, 2] + 1 - вернет 1,21</p>
+    <h2>сравнение ==</h2>
+    <p>сравнение идет как объекты</p>
+    <p>[] - пустой объект приводится к примитиву пустой строке ''</p>
+    <h1>методы массивов</h1>
+    <h2>splice</h2>
+    <p>delete arr[i] - удалит значение, но пустое место с undefined останется</p>
+    <p>.splice(start, end, elem) - от и до(не включительно). elem - поставить заместо удаляемых</p>
+    <p>.splice(start, 0, elem) - вставить элементы без удаления других элементов</p>
+    <p>.splice(-1, 3) - удаления с конца</p>
+    <h2>slice</h2>
+    <p>newArr = oldArr.slice(1, 3) - тот же splice, но копирует старый массив и возвращает новый</p>
+    <p>newArr = oldArr.slice() - просто копирует массив</p>
+    <h2>concat</h2>
+    <p>.concat(arg1, arg2) - arg - это либо массив либо любой примитив. вложенности внутри массивов так и передаются вложенностью</p>
+    <p>.concat([4, 5], 6, 7) - [4, 5, 6, 7]</p>
+    <h1>Интерации</h1>
+    <p>arr.forEach(function(item, index, array) {})</p>
+    <h1>Поиск</h1>
+    <p>arr.indexOf(elem) - </p>
+    <p>arr.includes(elem)</p>
+    <p>let users = [
+  {id: 1, name: "Вася"},
+  {id: 2, name: "Петя"},
+  {id: 3, name: "Маша"}
+];
+
+let user = users.find(item => item.id == 1);
+
+alert(user.name); // Вася</p>
+  </body>
+</html>
