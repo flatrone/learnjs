@@ -35,6 +35,7 @@
     <h1>Поиск</h1>
     <p>arr.indexOf(elem) - </p>
     <p>arr.includes(elem)</p>
+    <h2>find</h2>
     <p>let users = [
   {id: 1, name: "Вася"},
   {id: 2, name: "Петя"},
@@ -44,5 +45,23 @@
 let user = users.find(item => item.id == 1);
 
 alert(user.name); // Вася</p>
+    <h2>filter</h2>
+    <p>let someUsers = users.filter(item => item.id < 3);</p>
+    <h2>map</h2>
+    <p>let lengths = ["Бильбо", "Гэндальф", "Назгул"].map(item => item.length);</p>
+    <h2>sort</h2>
+    <p>function compare(a, b) {
+  if (a > b) return 1; // если первое значение больше второго
+  if (a == b) return 0; // если равны
+  if (a < b) return -1; // если первое значение меньше второго
+}</p>
+    <p>split(r) - строка делится на массив разделителем r, join(r) объединяется массив объеденителем</p>
+    <h2>reduce</h2>
+    <p>let value = arr.reduce(function(accumulator, item, index, array) {
+  // ...
+}, [initial]);</p>
+    <p>let result = arr.reduce((sum, current) => sum + current, 0);</p>
+    <h2>Arrat.isArray(arr) - проверка на массив</h2>
+    <h2>Array.from(obj) - делает массив из не массива</h2>
   </body>
 </html>
