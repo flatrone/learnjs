@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>var</h1>
+    <p>у нее функциональная область видимости</p>
+    <h3>
+        так не видит
+    </h3>
+    <pre>
+        function sayHi() {
+            var phrase = "Привет"; 
+          }
+          
+          alert(phrase); // Ошибка: phrase не определена
+    </pre>
+    <h3>так видит</h3>
+    <pre>
+        {var a = 1};
+        console.log(a)
+    </pre>
+    <p>var допускает повторное объявление</p>
+    <p>var есть поднятие hoisting, но это только объявление а не присваивание</p>
+    <pre>
+        console.log(a)  //undefined
+        var a = 123
+    </pre>
+</body>
+</html>

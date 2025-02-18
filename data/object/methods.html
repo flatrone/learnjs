@@ -6,5 +6,44 @@
     <p>obj.foo = foo</p>
     <h1>this</h1>
     <p>у стрелочных функций нет this</p>
+
+    <h2>this работает в зависимости от контекста</h2>
+    <pre>
+      let user = { name: "John" };
+      let admin = { name: "Admin" };
+
+        function sayHi() {
+          alert( this.name );
+        }
+
+      // используем одну и ту же функцию в двух объектах
+      user.f = sayHi;
+      admin.f = sayHi;
+
+        // эти вызовы имеют  разное значение this
+        // "this" внутри функции - это объект "перед точкой"
+        user.f(); // John  (this == user)
+        admin.f();
+    </pre>
+
+    <h2>потеря контекста</h2>
+    <pre>
+      let func = {
+        foo() {
+          console.log(this.number)
+        }
+      }
+
+      let obj = {
+        number: 5,
+        
+        method(f) {f()}
+      }
+
+      obj.method(func.foo) *
+    </pre>
+    <p>
+      по идее должно выдать 5, но не выдает. Дело в строке со зведочкой. obj.method(func.foo) - сюда мы передаем просто код функции, без контекста. Как будто мы вырываем часть кода без общей картины и функция не знает на что ссылаться(this).
+    </p>
   </body>
 </html>

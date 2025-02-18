@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>лбъект функция</h1>
+    <h2>свойство name</h2>
+    <p>все ниже одинаково присваивается имя foo.name</p>
+    <pre>
+        function sayHi() {
+            alert("Hi");
+          }
+          
+        let sayHi = function() {
+            alert("Hi");
+        };
+    </pre>
+    <h2>свойство length</h2>
+    <p>показывает длинну принимаемых параметров</p>
+    <p>function foo(a, b) {}; foo.length //покажет 2</p>
+
+    <h2>пользовательские свойства</h2>
+    <pre>
+        function foo(){
+            foo.counter++
+        }
+        foo.counter = 0;
+        foo()
+        alert(foo.counter)
+    </pre>
+    <p>если объявить counter через let, это другое</p>
+    <p>let объявляет локальную переменную, а foo.counter задает свойство объекта функции</p>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>геттеры и сеттеры</h1>
+    <p>Есть 2 типа свойств. первый тип обычные свойства-данные. Второй свойства-аксессоры. Это функции которые используются для присвоения и получения значения, но во внешнем коде они выглядят как обычные свойства объекта.</p>
+    <p>геттеры - для чтения. Сеттеры для записи</p>
+
+    <pre>
+        let user = {
+            name: "John",
+            surname: "Smith",
+          
+            get fullName() {
+              return `${this.name} ${this.surname}`;
+            },
+          
+            set fullName(value) {
+              [this.name, this.surname] = value.split(" ");
+            }
+          };
+          
+          // set fullName запустится с данным значением
+          user.fullName = "Alice Cooper";
+          
+          alert(user.name); // Alice
+          alert(user.surname); // Cooper
+    </pre>
+    <p>Снаружи свойство-аксессор выглядит как обычное свойство. В этом и заключается смысл свойств-аксессоров. Мы не вызываем user.fullName как функцию, а читаем как обычное свойство: геттер выполнит всю работу за кулисами.</p>
+
+    <h2>умные геттеры и сеттеры</h2>
+    <p>при добавлении свойства, можно както проверить это свойство</p>
+    <pre>
+        let user = {
+            get name() {
+              return this._name;
+            },
+          
+            set name(value) {
+              if (value.length < 4) {
+                alert("Имя слишком короткое, должно быть более 4 символов");
+                return;
+              }
+              this._name = value;
+            }
+          };
+          
+          user.name = "Pete";
+          alert(user.name); // Pete
+          
+          user.name = ""; // Имя слишком короткое...
+    </pre>
+    <p>Технически, внешний код всё ещё может получить доступ к имени напрямую с помощью user._name, но существует широко известное соглашение о том, что свойства, которые начинаются с символа "_", являются внутренними, и к ним не следует обращаться из-за пределов объекта.</p>
+
+
+
+    <h2>Зачем они вообще нужны</h2>
+    <pre>
+      setFullName() {
+        this.fullName = `${this.firstName} ${this.lastName}`;
+      }
+    </pre>
+    <p>почему не сделать просто</p>
+    <p>this.fullName = `${this.firstName} ${this.lastName}`;</p>
+    <p>тогда так будет выведено undefined</p>
+    <p>console.log(person.fullName) //undefined undefined</p>
+    <p>потому что this работает только в функциях. указать this в свойстве объекта, он не будет ссылаться на сам себя</p>
+
+    
+</body>
+</html>

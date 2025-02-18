@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Декораторы и переадресация вызова, call/apply</h1>
+    <h2>Кэширование</h2>
+    <p>Есть функиця slow(x) которая выполняет долгие вычисления. в основном попадают одни и теже параметры на которые выдаются одни и теже результаты. Можно както запомнить результаты и не вычислять их постоянно заново</p>
+    <pre>
+        function slow(x) {
+            // здесь могут быть ресурсоёмкие вычисления
+            alert(`Called with ${x}`);
+            return x;
+          }
+          
+          function cachingDecorator(func) {
+            let cache = new Map();
+          
+            return function(x) {
+              if (cache.has(x)) {    // если кеш содержит такой x,
+                return cache.get(x); // читаем из него результат
+              }
+          
+              let result = func(x); // иначе, вызываем функцию
+          
+              cache.set(x, result); // и кешируем (запоминаем) результат
+              return result;
+            };
+          }
+          
+          slow = cachingDecorator(slow);
+          alert( slow(1) );
+    </pre>
+
+    <h2>потеря контекста</h2>
+    <pre>
+      // сделаем worker.slow кеширующим
+let worker = {
+  someMethod() {
+    return 1;
+  },
+
+  slow(x) {
+    // здесь может быть страшно тяжёлая задача для процессора
+    alert("Called with " + x);
+    return x * this.someMethod(); // (*)
+  }
+};
+
+// тот же код, что и выше
+function cachingDecorator(func) {
+  let cache = new Map();
+  return function(x) {
+    if (cache.has(x)) {
+      return cache.get(x);
+    }
+    let result = func(x); // (**)
+    cache.set(x, result);
+    return result;
+  };
+}
+
+alert( worker.slow(1) ); // оригинальный метод работает
+
+worker.slow = cachingDecorator(worker.slow); // теперь сделаем его кеширующим
+
+alert( worker.slow(2) ); // Ой! Ошибка: не удаётся прочитать свойство 'someMethod' из 'undefined'
+    </pre>
+
+    <h2>foo.call() - для передачи контекста</h2>
+    <p>func.call(context, arg1, arg2, ...)</p>
+    <p>как бы фукнция.вызывает(объект)</p>
+    <pre>
+      function say(phrase) {
+        alert(this.name + ': ' + phrase);
+      }
+      
+      let user = { name: "John" };
+      
+      // 'user' становится 'this', и "Hello" становится первым аргументом
+      say.call( user, "Hello" ); // John: Hello
+    </pre>
+    <p>прблему выше с потерей контекста можно решить так:</p>
+    <p>let result = func.call(this, x); - вместо строки с двумя звезочками</p>
+
+    <h2>apply </h2>
+    <p>то же что и call, но принимает аргументы как массив</p>
+
+    <h2>заимствованрие метода</h2>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

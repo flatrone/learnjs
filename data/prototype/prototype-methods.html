@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Методы прототипов, объекты без свойства __proto__</h1>
+    <p>__proto__ - это устаревший метод</p>
+    <h2>современные методы</2>
+    <ul>
+        <li>Object.create(proto[, descriptors]) – создаёт пустой объект со свойством [[Prototype]], указанным как proto, и необязательными дескрипторами свойств descriptors.</li>
+        <li>Object.getPrototypeOf(obj) – возвращает свойство [[Prototype]] объекта obj.</li>
+        <li>Object.setPrototypeOf(obj, proto) – устанавливает свойство [[Prototype]] объекта obj как proto.</li>
+    </ul>
+
+    <pre>
+        let animal = {
+            eats: true
+          };
+          
+          // создаём новый объект с прототипом animal
+          let rabbit = Object.create(animal);
+          
+          alert(rabbit.eats); // true
+          
+          alert(Object.getPrototypeOf(rabbit) === animal); // получаем прототип объекта rabbit
+          
+          Object.setPrototypeOf(rabbit, {}); // заменяем прототип объекта rabbit на {}
+    </pre>
+</body>
+</html>

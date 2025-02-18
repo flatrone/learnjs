@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Класс</h1>
+    <p>класс - это как new function, только новое и продвинутое</p>
+    <p>напоминание: new function - используется для создания объектов</p>
+
+    <h2>синтаксис</h2>
+    <pre>
+        class User {
+
+            constructor(name) {
+              this.name = name;
+            }
+          
+            sayHi() {
+              alert(this.name);
+            }
+          
+          }
+          
+          // Использование:
+          let user = new User("Иван");
+          user.sayHi();
+    </pre>
+
+    <h2>что такое класс</h2>
+    <p>почитать эту статью на сайте. здесь я понял про F.prototype и почему object не указывает на объект родитель, а указывает на прототип</p>
+
+    <h2></h2>
+</body>
+</html>

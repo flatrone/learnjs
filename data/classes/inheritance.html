@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Наследование классов</h1>
+    <p>Наследование классов – это способ расширения одного класса другим классом.</p>
+    <p>то есть по сути создание родителя для класса</p>
+
+    <h2>расширение extends</h2>
+    <p>class Child extends Parent</p>
+    <pre>
+        class Rabbit extends Animal {
+           ...
+          }
+    </pre>
+
+    <h2>Переопределение методов</h2>
+    <p>расширение или дополнение родительского метода</p>
+    <pre>
+        class Animal {
+
+            constructor(name) {
+                this.name = name;
+            }
+            
+            stop() {
+                this.speed = 0;
+                alert(`${this.name} стоит.`);
+            }
+            
+        }
+        
+        class Rabbit extends Animal {
+            hide() {
+                alert(`${this.name} прячется!`);
+            }
+            
+            stop() {
+                super.stop(); // вызываем родительский метод stop
+                this.hide(); // и затем hide
+            }
+        }
+        
+        let rabbit = new Rabbit("Белый кролик");
+        
+        rabbit.stop(); // Белый кролик стоит. Белый кролик прячется!
+    </pre>
+
+    <h2>Переопределение конструктора</h2>
+    <p>если наследованный класс создает свои свойства, то super должен быть обязательным, иначе ошибка</p>
+    <pre>
+          class Animal {
+            constructor(name) {
+              this.name = name;
+            }
+          }
+          
+          class Rabbit extends Animal {
+            constructor(name, earLength) {
+              super(name);
+              this.earLength = earLength;
+            }
+          }
+    </pre>
+</body>
+</html>

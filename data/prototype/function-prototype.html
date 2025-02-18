@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>F.prototype</h1>
+    <p>По сути это установка прототипу новые свойства</p>
+    <h3>пример 1</h3>
+    <pre>
+        function Person(name) {
+            this.name = name;
+          }
+          
+          // Добавляем новое свойство (метод) к прототипу
+          Person.prototype.sayHello = function() {
+            console.log(`Hello, my name is ${this.name}`);
+          };
+          
+          let alice = new Person('Alice');
+          let bob = new Person('Bob');
+          
+          // Оба экземпляра наследуют метод sayHello из прототипа
+          alice.sayHello(); // "Hello, my name is Alice"
+          bob.sayHello();   
+    </pre>
+    <h3>второй пример</h3>
+    <p>здесь мы говорим - для Rabbit установить все свойства animal`a</p>
+    <pre>
+        let animal = {
+            eats: true
+          };
+          
+          function Rabbit(name) {
+            this.name = name;
+          }
+          
+          Rabbit.prototype = animal;
+          
+          let rabbit = new Rabbit("White Rabbit"); //  rabbit.__proto__ == animal
+          
+          alert( rabbit.eats ); // true
+    </pre>
+</body>
+</html>

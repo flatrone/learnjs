@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Прототипное наследование</h1>
+    <p>Прототипное наследование - создать новый объект на основе другого?</p>
+
+    <h2>[[Prototype]]</h2>
+    <p>это скрытое свойство объекта которое ссылается на другой объект(прототип, родительский объект)</p>
+    <p>Прототип даёт нам немного «магии». Когда мы хотим прочитать свойство из object, а оно отсутствует, JavaScript автоматически берёт его из прототипа. В программировании такой механизм называется «прототипным наследованием».</p>
+    <pre>
+        let animal = {
+            eats: true
+          };
+          
+          let rabbit = {
+            jumps: true
+          };
+          
+          rabbit.__proto__ = animal;
+    </pre>
+    <p>__proto__ - устанавливает для объекта прототип</p>
+    <p>let rabbit = {__proto__: animal} - можно записать прототип в свойтва</p>
+    <p>__proto__ - уже устарело</p>
+
+    <h2>Object.prototype</h2>
+    <p>Array.prototype - это и есть сам прототип объекта arr</p>
+</body>
+</html>

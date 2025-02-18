@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>потеря контекста</h1>
+    <pre>
+        let user = {
+            firstName: "Вася",
+            sayHi() {
+              alert(`Привет, ${this.firstName}!`);
+            }
+          };
+          
+          setTimeout(user.sayHi, 1000); // Привет, undefined!
+    </pre>
+
+    <h2>решение 1. Сделать функцию обертку</h2>
+    <p>setTimeout(() => user.sayHi(), 1000);</p>
+
+    <h2>решение bind</h2>
+    <p>по сути тот же call, только здесь используется для многократного использования</p>
+    <p>let funcUser = func.bind(user);
+       funcUser(); // Вася</p>
+</body>
+</html>
