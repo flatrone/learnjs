@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>try-catch</h1>
+    <pre>
+        try {
+
+            // код...
+          
+          } catch (err) {
+          
+            // обработка ошибки
+          
+          }
+    </pre>
+
+    <h2>объект ошибки</h2>
+    <p>catch(error)</p>
+    <p>объект имеет 3 свойства</p>
+    <ul>
+      <li>err.name - имя ошибки</li>
+      <li>err.message - детали</li>
+      <li>err.stack - строка где была ошибка</li>
+    </ul>
+
+    <h2>генерация своих ошибок</h2>
+    <p>throw ErrorObj - вызвать ошибку</p>
+    <p>let myError = new Error('моя ошибка') - создание ошибки</p>
+    <pre>
+      try {
+        throw new SyntaxError("Данные неполны: нет имени"); 
+      } catch(e) {
+        alert( "JSON Error: " + e.message ); // JSON Error: Данные неполны: нет имени
+      }
+    </pre>
+
+    <h2>try{} catch{e} finally{}</h2>
+</body>
+</html>

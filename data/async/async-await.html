@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>async-await</h1>
+    <h2>async</h2>
+    <p>У слова async один простой смысл: эта функция всегда возвращает промис.</p>
+    <pre>
+        async function f() {
+            return Promise.resolve(1);
+          }
+          
+          f().then(alert); // 1
+    </pre>
+
+    <h2>await</h2>
+    <p>на строчке await код не продолжится пока не выполнится строчка await</p>
+    <pre>
+        async function showAvatar() {
+
+            // запрашиваем JSON с данными пользователя
+            let response = await fetch('/article/promise-chaining/user.json');
+            let user = await response.json();
+          
+            // запрашиваем информацию об этом пользователе из github
+            let githubResponse = await fetch(`https://api.github.com/users/${user.name}`);
+            let githubUser = await githubResponse.json();
+          
+            // отображаем аватар пользователя
+            let img = document.createElement('img');
+            img.src = githubUser.avatar_url;
+            img.className = "promise-avatar-example";
+            document.body.append(img);
+          
+            // ждём 3 секунды и затем скрываем аватар
+            await new Promise((resolve, reject) => setTimeout(resolve, 3000));
+          
+            img.remove();
+          
+            return githubUser;
+          }
+          
+          showAvatar();
+    </pre>
+
+    <h2>обработка ошибок</h2>
+    <p>в основном используеся try-catch внутри функции</p>
+    <pre>
+        async function f() {
+            try{} 
+            catch(error){}
+        }
+    </pre>
+    <p>но можно использовать .catch</p>
+    <pre>f().catch(error)</pre>
+</body>
+</html>

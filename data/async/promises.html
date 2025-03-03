@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Promises</h1>
+    <h2>объяснение с учебника</h2>
+    <pre>
+        let promise = new Promise(function(resolve, reject) {
+            ...
+          });
+    </pre>
+    <p>Функция, переданная в конструкцию new Promise, называется исполнитель (executor). Когда Promise создаётся, она запускается автоматически. Она должна содержать «создающий» код, который когда-нибудь создаст результат.</p>
+    <p>Её аргументы resolve и reject – это колбэки, которые предоставляет сам JavaScript. Наш код – только внутри исполнителя.</p>
+    <p>Когда он получает результат, сейчас или позже – не важно, он должен вызвать один из этих колбэков:</p>
+    <ul>
+        <li>resolve(value) — если работа завершилась успешно, с результатом value.</li>
+        <li>reject(error) — если произошла ошибка, error – объект ошибки.</li>
+    </ul>
+    <p>Итак, исполнитель запускается автоматически, он должен выполнить работу, а затем вызвать resolve или reject.</p>
+    <p>У объекта promise, возвращаемого конструктором new Promise, есть внутренние свойства:</p>
+    <ul>
+        <li>state («состояние») — вначале "pending" («ожидание»), потом меняется на "fulfilled" («выполнено успешно») при вызове resolve или на "rejected" («выполнено с ошибкой») при вызове reject.</li>
+        <li>result («результат») — вначале undefined, далее изменяется на value при вызове resolve(value) или на error при вызове reject(error).</li>
+    </ul>
+    <h2>объяснение с копилота</h2>
+    <pre>
+        let promise = new Promise(function(resolve, reject) {
+            // асинхронная операция
+            let success = true;  // пример условия
+        
+            if (success) {
+                resolve("Operation was successful!");
+            } else {
+                reject("Operation failed.");
+            }
+        }
+
+        function Promise(executor) {
+            // начальное состояние обещания
+            this.state = 'pending';
+            this.value = undefined;
+            this.reason = undefined;
+        
+            // функции для изменения состояния обещания
+            const resolve = (value) => {
+                if (this.state === 'pending') {
+                    this.state = 'fulfilled';
+                    this.value = value;
+                }
+            };
+        
+            const reject = (reason) => {
+                if (this.state === 'pending') {
+                    this.state = 'rejected';
+                    this.reason = reason;
+                }
+            };
+        
+            try {
+                executor(resolve, reject);
+            } catch (error) {
+                reject(error);
+            }
+        }
+        
+    </pre>
+
+    <h2>then</h2>
+    <pre>
+        promise.then(
+            function(result) { /* обработает успешное выполнение */ },
+            function(error) { /* обработает ошибку */ }
+        );
+    </pre>
+
+    <h2>catch</h2>
+    <p>По сути это catch это сокращенный вариант верхнего кода promise.then(error, result);</p>
+    <pre>
+        promise.catch(alert);
+    </pre>
+
+    <h2>finally</h2>
+    <p>выполнится перед всеми then, но после срабатывания обещания</p>
+    <pre>promise.finally(() => alert("Промис завершён"))</pre>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Атрибуты и свойства</h1>
+    <p>Когда браузер загружает страницу, он «читает» (также говорят: «парсит») HTML и генерирует из него DOM-объекты</p>
+
+    <h2>DOM свойства</h2>
+    <p>DOM узлы это объекты, поэтому мы можем присвоить любое значение</p>
+    <pre>
+        document.body.myData = {
+            name: 'Caesar',
+            title: 'Imperator'
+          };
+    </pre>
+
+    <h2>HTML атрибуты</h2>
+    <p>атрибуты это просто свойства для ДОМ узлов</p>
+    <pre>
+        body id="test" something="non-standard">
+            script>
+              alert(document.body.id); // test
+              // нестандартный атрибут не преобразуется в свойство
+              alert(document.body.something); // undefined
+            /script>
+          /body>
+    </pre>
+    <h3>проверка на наличие аттрибутов</h3>
+    <ul>
+        <li>elem.hasAttribute(name) – проверяет наличие атрибута.</li>
+        <li>elem.getAttribute(name) – получает значение атрибута.</li>
+        <li>elem.setAttribute(name, value) – устанавливает значение атрибута.</li>
+        <li>elem.removeAttribute(name) – удаляет атрибут.</li>
+    </ul>
+</body>
+</html>

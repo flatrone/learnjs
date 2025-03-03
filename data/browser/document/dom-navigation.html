@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Навигация по DOM элементам</h1>
+    <p>document - это точка входа. из него можно получить любой элемент</p>
+    <h2>дети</h2>
+    <p>childNodes - вернет все. т.е. и комментарии, и простой текст и все все</p>
+    <p>childNodes - это DOM коллекция, не массив. К коллекции не применимы некоторые методы массивов</p>
+    <p>firstChild, lastChild - получает дочерний узел из всех элементов(комментарии, текст)</p>
+
+    <h2>соседи и родитель</h2>
+    <p>nextSibling - след сосед, previousSibling - предыдущий</p>
+    <p>parentNode - родитель</p>
+
+    <h2>Навигация только по элементам</h2>
+    <p>children</p>
+    <p>firstElementChild, lastElementChild – первый и последний дочерний элемент.</p>
+    <p>previousElementSibling, nextElementSibling – соседи-элементы.</p>
+    <p>parentElement – родитель-элемент.</p>
+</body>
+</html>

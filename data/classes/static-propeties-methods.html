@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Статические методы</h1>
+    <p>по сути это просто обычные функции объявленные внутри класса</p>
+    <p>по типу Array.isArray(), Object.keys()</p>
+
+    <pre>
+          class MathHelper {
+            // Статический метод для сложения двух чисел
+            static add(a, b) {
+              return a + b;
+            }
+          }
+          
+          // Вызываем статические методы непосредственно на классе
+          console.log(MathHelper.add(5, 3)); // 8
+    </pre>
+    <p>к созданным объектам из класса эти методы не применимы. obj.add() - не сработает</p>
+
+    <h1>статические свойства</h1>
+    <p>по сути просто свойства класса</p>
+    <pre>
+          class Article {
+            static publisher = "Илья Кантор";
+          }
+          
+          alert( Article.publisher ); // Илья Кантор
+    </pre>
+    <p>тоже самое что и </p>
+    <p>Article.publisher = "Илья Кантор";</p>
+
+    <h1>Наследование статических свойств и методов</h1>
+    <p>расширенные классы наследуют статические свойства и методы</p>
+    <pre>
+        class User extends Article {
+            ...
+          }
+    </pre>
+</body>
+</html>

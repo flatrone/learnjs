@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>цепочка промисов</h1>
+    <p>promise.then(1).then(2).then(3)</p>
+    <p>код выше это не тоже самое что и ниже</p>
+    <p>promise.then(1); promise.then(2); promise.then(3)</p>
+    <p>сверху - это цепочка, которая работает последовательно, а снизу эта цепочка будет начинаться постоянно заново</p>
+    <p>т.е. будет  then(1).then(1).then(1)</p>
+</body>
+</html>

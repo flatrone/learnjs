@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>свойства узлов</h1>
+
+    <h2>innerHTML</h2>
+    <p>innerHTML += - он полностью перезаписывает контент. Т.е. при перезаписи содержимого элемента,  если пользователь в это время чтото выделил, то оно пропадет</p>
+    
+    <h2>nodeValue/data - содержимое текстового узла</h2>
+
+    <h2>textContent</h2>
+    <p>получает текст, даже всех дочерних элементов, с вычетом всех тегов</p>
+    <pre>
+        div id="news">
+            h1>Срочно в номер!</h1>
+            p>Марсиане атаковали человечество!</p>
+        /div>
+        alert(news.textContent);
+
+    </pre>
+    <p>позволяет получать текст от пользоваетля безопасным способом</p>
+</body>
+</html>

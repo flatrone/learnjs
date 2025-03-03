@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>promises Api</h1>
+    <p>в классе Promise есть 6 методов</p>
+    <h2>Promises.all</h2>
+    <p>Запустить много промисов и дождаться, пока они все выполнятся</p>
+    <p>метод all - принимает массив промисов и возвращает новый массив</p>
+    <pre>
+        Promise.all([
+            new Promise(resolve => setTimeout(() => resolve(1), 3000)), // 1
+            new Promise(resolve => setTimeout(() => resolve(2), 2000)), // 2
+            new Promise(resolve => setTimeout(() => resolve(3), 1000))  // 3
+            ]).then(alert); // когда все промисы выполнятся, результат будет 1,2,3
+            // каждый промис даёт элемент массива
+    </pre>
+    <p>если хоть в одном возникнет ошибка, то отменяются все промисы</p>
+
+    <h2>Promise.race</h2>
+    <p>похож на .all, но из массива кто первый выполнится(ошибочный или успешный) тот и работает дальше, остальные мимо</p>
+
+    <h2>Promise.any</h2>
+    <p>похож на .race, но ждет УСПЕШНЫЙ результат, а не абы какой</p>
+
+    <h2>Promise.resolve</h2>
+
+    <h2>Promise.reject</h2>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>модули</h1>
+    <p>модуль - это просто файл</p>
+    <pre>
+        export function foo() {...}
+        import {foo} from './path/file.js'
+    </pre>
+    <p>модули нужно указывать</p>
+    <pre>script type="module" src='file.js'> /script></pre>
+    <p>модули не работают локально, через протокол file://. Только через сервер</p>
+    <p>модули всегда рабоют через 'use strict'</p>
+    <p>модули имеют свою область видимости</p>
+    <p>при изменении в экспортируемом модуле свойств, то во всех импортируемых модулях видны эти изменения</p>
+
+    <h2>export</h2>
+    <p>экспорт отдельных фрагментов
+    <pre>
+        export let arr = [1, 2, 3];
+        export function foo() {...}
+        export class User{...}
+    </pre>
+    <p>экспорт отдельно от объявления</p>
+    <pre>
+        function foo() {...}
+        function foo2() {...}
+
+        export {foo, foo2};
+    </pre>
+
+    <h2>импорт</h2>
+    <p>import {foo, foo2} from './file.js'</p>
+    <p>импорт всего файла</p>
+    <p>import * as module from './module.js'</p>
+
+    <h2>экспорт по умолчанию</h2>
+    <p>разница</p>
+    <h3>именованный экспорт - export {}</h3>
+    <pre>
+        export class User {...}
+        import {User} from './.../file.js'
+    </pre>
+    <h3>экспорт по умолчанию - export default</h3>
+    <pre>
+        export default class User {...}
+        import User from './.../file.js'
+    </pre>
+    <h3>отличия</h3>
+    <ol>
+        <li>Количество экспортируемых значений: export default используется для экспорта только одного значения из модуля, тогда как export {} позволяет экспортировать несколько именованных значений.</li>
+        <li>Импортирование: При импорте значений, экспортированных с помощью export default, вы можете дать этому значению любое имя. При импорте именованных экспортов через export {}, вы должны использовать точное имя экспортируемого значения.</li>
+        <li>Применение: export default чаще используется для экспортирования главной функции или класса модуля, тогда как export {} подходит для экспортирования нескольких утилитарных функций или констант.</li>
+    </ol>
+</body>
+</html>
