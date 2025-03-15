@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Делегирование</h1>
+    <p>Идея в том, что если у нас есть много элементов, события на которых нужно обрабатывать похожим образом, то вместо того, чтобы назначать обработчик каждому, мы ставим один обработчик на их общего предка.</p>
+    <p>Из него можно получить целевой элемент event.target, понять на каком именно потомке произошло событие и обработать его.</p>
+    <p>допустим есть таблица с большим кол-вом td, и чтобы не ставить на каждый td обработчик, делаем один обработчик на родитель</p>
+    <pre>
+        let selectedTd;
+
+table.onclick = function(event) {
+  let target = event.target; // где был клик?
+
+  if (target.tagName != 'TD') return; // не на TD? тогда не интересует
+
+  console.log(target); // подсветить TD
+};
+
+    </pre>
+
+    <h2>делегирование через разметку html</h2>
+    <pre>
+        div id="menu">
+            button data-action="save">Сохранить /button>
+            button data-action="load">Загрузить /button>
+            button data-action="search">Поиск /button>
+          /div>
+          
+          script>
+            class Menu {
+              constructor(elem) {
+                elem.onclick = this.onClick.bind(this); // (*)
+              }
+          
+              save() {
+                alert('сохраняю');
+              }
+          
+              load() {
+                alert('загружаю');
+              }
+          
+              search() {
+                alert('ищу');
+              }
+          
+              onClick(event) {
+                let action = event.target.dataset.action;
+                if (action) {
+                  this[action]();
+                }
+              }
+            }
+          
+            new Menu(menu);
+          /script>
+    </pre>
+</body>
+</html>

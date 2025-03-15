@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Введение в события</h1>
+    
+    <h3>события мыши</h2>
+    <ul>
+        <li>click - левая кнопка</li>
+        <li>contextmenu - правая кнопка</li>
+        <li>mouseover / mouseout - когда мышь наводится \ покидает элемент</li>
+        <li>mousedown / mouseup - нажали / отпустили кнопку</li>
+        <li>mousemove - движение мыши</li>
+    </ul>
+
+    <h3>события на элементах управления</h2>
+    <ul>
+        <li>submit - отправка формы</li>
+        <li>focus - фокус на элементе, например нажатие на input</li>
+    </ul>
+
+    <h3>клавиатурные события</h2>
+    <ul>
+        <li>keydown / keyup - кнопку нажать / отпустить</li>
+    </ul>
+
+    <h3>обработчик событий</h2>
+    <p>div onclick='alert("hi")' - событие через атрибуты в html</p>
+    <p>elem.onclick = function() {...} - через JS</p>
+
+    <h2>доступ к элементу через this</h2>
+    <p>div onclick='alert(this)'</p>
+
+    <h2>скобки</h2>
+    <p>при установке событий через атрибут, скобки нужны. а через JS не нужны</p>
+
+    <h2>addEventListener / removeEventListener</h2>
+    <p>elem.addEventListener(event, handler)</p>
+    <p>отиличие от onclick - через addEvent можно добавлять несколько обработчиков подряд</p>
+
+    <h2>объект события(event)</h2>
+    <pre>elem.onclick = function(event) {alert(event.всякие свойства)}</pre>
+    <p>некоторые свойства</p>
+    <h3>event.type - тип события</h3>
+    <h3>event.currentTarget - элемент на котором сработал обработчик</h3>
+    <h3>event.clientX/Y - координаты курсора в момент клика</h3>
+
+    <h2>объект обработчик handleEvent</h2>
+    
+</body>
+</html>

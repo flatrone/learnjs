@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Основы событий мыши</h1>
+    
+    <h2>типы событий</h2>
+
+    <h2>поярдок событий</h2>
+
+    <h2>кнопки мыши</h2>
+
+    <h2>модификаторы shift, alt, ctrl, </h2>
+
+    <h2>координаты clientX/Y, pageX/Y</h2>
+    <p>координаты имеют 2 варианта</p>
+    <p>1. относительно окна clientX/Y</p>
+    <p>2. относительно документа pageX/Y</p>
+    <p>input onmousemove="this.value=event.clientX+':'+event.clientY" value="Наведи на меня мышь"> /p>
+
+    <h2>отключаем выделение</h2>
+    <p>отменить выделение текста по двойному клику</p>
+    <p>внутри тега добавить onmousedown='return false'</p>
+
+    <h2>запрет копирования</h2>
+    <p>div oncopy='alert(хуй тебе)'</p>
+</body>
+</html>

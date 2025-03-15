@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Всплытие и погружение</h1>
+    <h2>всплытие</h2>
+    <p>при клиеке на p, так же сработают и div и form. Если кликнуть на div, то сработает только div</p>
+    <p>дочерние элементы вкладываются внутрь глубже в родителя, а события какбы всплывают наверх</p>
+    <pre>
+        style>
+            body * {
+              margin: 10px;
+              border: 1px solid blue;
+            }
+        /style>
+          
+        form onclick="alert('form')">FORM
+            div onclick="alert('div')">DIV
+              p onclick="alert('p')">P/p>
+            /div>
+        /form>
+    </pre>
+
+    <h2>event.target</h2>
+    <p>event.target - это самый глубокий элемент на которое вызвало событие. Например p из примера выше</p>
+    <p>this - это «текущий» элемент, до которого дошло всплытие, на нём сейчас выполняется обработчик.</p>
+    <p>в этом примере this всегда будет равен form, т.к. функция срабатывает именно на form. А начинают вызывать всплытия div и p</p>
+    <pre>
+        form onclick="alert('form')">FORM
+            div>DIV
+              p>P/p>
+            /div>
+        /form>
+    </pre>
+
+    <h2>прекращение всплытия</h2>
+    <p>event.stopPropagation() - остановка всплытие</p>
+    <pre>
+        body onclick="alert(`сюда всплытие не дойдёт`)">
+            button onclick="event.stopPropagation()"> Кликни меня /button>
+        /body>
+    </pre>
+
+</body>
+</html>

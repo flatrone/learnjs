@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>стили и классы</h1>
+    <p>есть 2 способа задания стилей элемента</p>
+    <p>1. через классы div class='' 2. через style - div style=''</p>
+    <p>через классы предпочтительнее</p>
+    <p>разрешается style при каких то расчетах</p>
+    <pre>
+        let top = какие то сложные расчеты
+        elem.style.top = top
+    </pre>
+
+    <h2>className и classList</h2>
+    <h3>className</h3>
+    <p>получает все строку со всеми классами</p>
+    <p>elem.className -  вернет 'red center form'</p>
+
+    <h3>classList</h3>
+    <ul>
+        <li>elem.classList.add/remove("class") – добавить/удалить класс.</li>
+        <li>elem.classList.toggle("class") – добавить класс, если его нет, иначе удалить.</li>
+        <li>elem.classList.contains("class") – проверка наличия класса, возвращает true/false.</li>
+    </ul>
+
+    <h2>удаление</h2>
+    <p>присвоить через style пустую строку</p>
+    <p>elem.style.background = ''</p>
+</body>
+</html>
